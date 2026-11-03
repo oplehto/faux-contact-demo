@@ -1,0 +1,77 @@
+/* Faux Contact / foundations and controls. Add class="fc" to one container. */
+.fc {
+  --fc-black: #0b090a;
+  --fc-panel: #171315;
+  --fc-red: #ff4939;
+  --fc-grid: #552521;
+  --fc-paper: #f3e8d5;
+  --fc-muted: #b6a8a1;
+  --fc-pink: #ff91b4;
+  --fc-edge: #665752;
+  --fc-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --fc-text: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fc-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --fc-unit: 4px;
+  --fc-gutter: clamp(16px, 4vw, 64px);
+  color-scheme: dark;
+  background: var(--fc-black);
+  color: var(--fc-paper);
+  font: 400 1rem/1.5 var(--fc-text);
+}
+.fc, .fc *, .fc *::before, .fc *::after { box-sizing: border-box; }
+.fc :where(h1, h2, h3, p, figure, dl, dd, pre, fieldset) { margin: 0; }
+.fc :where(a) { color: inherit; text-underline-offset: .22em; }
+.fc :where(button, input, select) { font: inherit; }
+.fc :where(a, button, input, select, summary):focus-visible {
+  outline: 3px solid var(--fc-paper);
+  outline-offset: 3px;
+}
+.fc .fc-display {
+  font: 950 clamp(3.25rem, 8.4vw, 9rem)/.84 var(--fc-display);
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+.fc .fc-code, .fc .fc-key, .fc .fc-button, .fc .fc-menu {
+  font: 500 .81rem/1.4 var(--fc-mono);
+}
+.fc .fc-code { color: var(--fc-muted); font-variant-numeric: tabular-nums; }
+.fc .fc-key {
+  display: inline-grid; min-width: 1.7em; place-items: center;
+  border: 1px solid var(--fc-edge); border-bottom-width: 3px;
+  padding: .12em .32em; color: var(--fc-paper); background: var(--fc-panel);
+}
+.fc .fc-button {
+  min-height: 44px; padding: 8px 14px; border: 1px solid var(--fc-red);
+  color: var(--fc-black); background: var(--fc-red); cursor: pointer;
+}
+.fc .fc-button:hover { background: var(--fc-paper); border-color: var(--fc-paper); }
+.fc .fc-button:active { box-shadow: inset 3px 3px var(--fc-edge); }
+.fc .fc-button:disabled { color: var(--fc-muted); background: var(--fc-panel); border-color: var(--fc-edge); cursor: default; }
+.fc .fc-menu {
+  display: inline-flex; padding: 0; border: 1px solid var(--fc-edge);
+  flex-wrap: wrap; max-width: 100%;
+}
+.fc .fc-menu label { position: relative; cursor: pointer; }
+.fc .fc-menu input, .fc .fc-sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; margin: 0;
+}
+.fc .fc-menu label span { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px; }
+.fc .fc-menu label + label { border-inline-start: 1px solid var(--fc-edge); }
+.fc .fc-menu input:checked + span { background: var(--fc-paper); color: var(--fc-black); font-weight: 700; }
+.fc .fc-menu input:focus-visible + span { outline: 2px dashed currentColor; outline-offset: -5px; }
+.fc .fc-menu label:hover span { text-decoration: underline; text-underline-offset: .25em; }
+.fc .fc-meter {
+  display: inline-block; position: relative; width: 8rem; height: 12px;
+  background: var(--fc-edge);
+  mask-image: repeating-linear-gradient(90deg,#000 0 8%,transparent 8% 10%);
+}
+.fc .fc-meter::after {
+  content: ""; position: absolute; inset: 0 auto 0 0; background: var(--fc-red);
+  width: var(--fc-level, 60%);
+}
+@media (forced-colors: active) {
+  .fc .fc-menu input:checked + span { outline: 2px solid Highlight; outline-offset: -3px; }
+  .fc .fc-meter { background: GrayText; }
+  .fc .fc-meter::after { background: Highlight; }
+}

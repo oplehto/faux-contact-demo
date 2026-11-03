@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b090a">
+<title>Sprite lathe · Faux Contact</title>
+<link rel="stylesheet" href="../css/signal.css">
+<link rel="stylesheet" href="../css/screen.css">
+<link rel="stylesheet" href="../css/film.css">
+<link rel="stylesheet" href="lathe.css">
+<link rel="stylesheet" href="../css/type-fx.css">
+<script src="../js/crt.js" defer></script>
+<script src="engine.js" defer></script>
+<script src="lathe.js" defer></script>
+</head>
+<body class="fc">
+<main class="lathe">
+  <header class="bar"><a href="../index.html" class="brand">▰ Faux Contact</a><span class="fc-code">Object workshop / 01</span></header>
+  <div class="heading"><h1 class="fc-rgb-title">Sprite lathe<i class="fc-tracking" data-text="Sprite lathe" aria-hidden="true"></i></h1><p>Turn a solid in seven inks. Pull a single frame or a complete revolution.</p></div>
+  <div class="bench">
+    <section class="view" aria-label="Live sprite preview">
+      <div id="plate" class="platen fc-screen fc-film-stock" data-stock="film" data-wear="worn">
+        <div class="fc-field" aria-hidden="true"></div>
+        <div class="fc-dust" aria-hidden="true"></div>
+        <div class="plate-label">FC / OBJECT STUDIES</div>
+        <canvas id="sprite" width="192" height="152" tabindex="0" aria-label="Split coupling in three dimensions. Drag or use the arrow keys to rotate.">Your browser needs Canvas 2D to display the sprite.</canvas>
+        <div class="slate"><span class="take" id="take">FIG. 01</span><h2 class="fc-film-title fc-rgb-title" id="title"><span id="word">Split coupling</span><i class="fc-tracking" aria-hidden="true" data-text="Split coupling" id="title-echo"></i></h2></div>
+      </div>
+      <div class="transport"><button type="button" id="spin" class="secondary" aria-pressed="false">▶ Spin</button><span class="fc-code" id="resolution">192 × 152</span><button type="button" id="reset" class="secondary">Reset view</button></div>
+      <p class="hint">Drag the object to turn it. Use the arrow keys when the canvas has focus.</p>
+    </section>
+    <form class="panel" id="controls" onsubmit="return false">
+      <fieldset><legend>Geometry</legend>
+        <label class="line">Object<select id="model"><option value="coupling">Split coupling</option><option value="torus">Single torus</option><option value="knot">Trefoil knot</option></select></label>
+        <label class="range"><span>Tube radius <output for="tube" id="tube-out">0.27</output></span><input id="tube" type="range" min="14" max="38" value="27"></label>
+        <label class="range" id="gap-label"><span>Ring spacing <output for="gap" id="gap-out">0.80</output></span><input id="gap" type="range" min="28" max="105" value="80"></label>
+      </fieldset>
+      <fieldset><legend>Exposure</legend>
+        <label class="line">Palette<select id="palette"><option value="oxide">Red oxide</option><option value="phosphor">Green phosphor</option><option value="violet">Violet</option></select></label>
+        <div id="inks" class="inks" aria-hidden="true"></div>
+        <label class="range"><span>Ordered dither <output for="dither" id="dither-out">100%</output></span><input id="dither" type="range" min="0" max="100" value="100"></label>
+        <label class="line">Pixel width<select id="size"><option>96</option><option selected>192</option><option>288</option></select></label>
+        <label class="line">Display stock<select id="stock"><option value="film">Amber film</option><option value="grid">Red grid</option></select></label>
+        <label class="check"><input type="checkbox" checked id="wear"> Slip two scan bands</label>
+        <label class="check"><input type="checkbox" checked id="tracking"> Animate CRT roll and title tracking</label>
+      </fieldset>
+      <fieldset><legend>Pull a sprite</legend><div class="exports"><button type="button" id="png" class="fc-button">Frame PNG ↓</button><button type="button" id="strip" class="secondary">16-frame strip ↓</button></div>
+        <p class="hint">Transparent PNGs contain the object alone. The strip runs left to right from the current angle.</p>
+        <p class="fc-code" role="status" id="message"></p>
+      </fieldset>
+    </form>
+  </div>
+</main>
+</body></html>

@@ -1,0 +1,42 @@
+/* Register a second exposure over a live, selectable display title.
+   The echo receives aria-hidden="true" and the same string in data-text. */
+.fc .fc-rgb-title {
+  --fc-type-core: #ffe6d3;
+  --fc-type-cold: #37dfef;
+  --fc-type-hot: #ff285a;
+  --fc-type-lamp: #ff432a;
+  position: relative;
+  color: var(--fc-type-core);
+  text-shadow:
+    -.026em .002em 0 var(--fc-type-cold),
+    .032em -.003em 0 var(--fc-type-hot),
+    0 0 .045em var(--fc-type-lamp), 0 0 .13em var(--fc-type-lamp),
+    0 0 .34em color-mix(in srgb, var(--fc-type-lamp) 76%, transparent);
+}
+.fc .fc-rgb-title.fc-film-title {
+  --fc-type-core: #ffe5a1; --fc-type-cold: #afb594;
+  --fc-type-hot: #ef7956; --fc-type-lamp: #d0813d;
+}
+.fc .fc-rgb-title .fc-tracking {
+  position: absolute; inset: 0; display: block;
+  color: var(--fc-type-core); pointer-events: none; font: inherit;
+  letter-spacing: inherit; text-transform: inherit; white-space: inherit;
+  text-shadow: -.045em 0 var(--fc-type-cold), .05em 0 var(--fc-type-hot);
+  opacity: 0; clip-path: inset(58% 0 32% 0);
+  animation: fc-type-track 9.4s steps(1, end) infinite;
+}
+.fc .fc-tracking::before { content: attr(data-text); }
+@keyframes fc-type-track {
+  0%, 72%, 75.6%, 100% { opacity: 0; transform: none; }
+  72.8% { opacity: .86; transform: translateX(.045em); clip-path: inset(58% 0 33%); }
+  74.1% { opacity: .70; transform: translateX(-.027em); clip-path: inset(62% 0 30%); }
+}
+.fc [data-motion="paused"] .fc-rgb-title .fc-tracking,
+.fc[data-motion="paused"] .fc-rgb-title .fc-tracking { animation-play-state: paused; opacity: 0; animation-name: none; }
+@media (prefers-reduced-motion: reduce), print {
+  .fc .fc-rgb-title .fc-tracking { animation: none; }
+}
+@media (forced-colors: active) {
+  .fc .fc-rgb-title { color: CanvasText; text-shadow: none; filter: none; }
+  .fc .fc-rgb-title .fc-tracking { display: none; }
+}

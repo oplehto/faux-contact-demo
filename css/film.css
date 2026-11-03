@@ -1,0 +1,23 @@
+/* Faux Contact / analog title stock. Apply the softness only to display lettering. */
+.fc .fc-film-stock {
+  --fc-emulsion: #26150e;
+  --fc-lamp: #ffe3a0;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--fc-emulsion);
+  background-image: radial-gradient(ellipse at 58% 42%, #cd802329, transparent 65%),
+    radial-gradient(ellipse at 48% 57%, transparent 36%, #120606c9 100%);
+  color: var(--fc-lamp);
+}
+.fc .fc-film-stock::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  opacity: .16; mix-blend-mode: soft-light;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23aaa' filter='url(%23g)' d='M0 0h160v120H0z'/%3E%3C/svg%3E");
+}
+.fc .fc-film-title {
+  color: var(--fc-lamp, #ffe3a0);
+  font-family: var(--fc-display); font-weight: 900; line-height: 1.03;
+  letter-spacing: .055em; text-transform: uppercase;
+  text-shadow: .012em .008em .028em #ffc358d9, -.017em 0 .065em #db602395, 0 0 .18em #ed8a3444;
+  filter: blur(.014em);
+}

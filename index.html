@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b090a">
+  <title>Faux Contact — CSS field guide</title>
+  <link rel="stylesheet" href="css/signal.css">
+  <link rel="stylesheet" href="css/screen.css">
+  <link rel="stylesheet" href="css/specimen.css">
+  <link rel="stylesheet" href="css/film.css">
+  <link rel="stylesheet" href="css/type-fx.css">
+  <script defer src="js/crt.js"></script>
+</head>
+<body class="fc">
+<main class="fc-page" id="top">
+  <header class="mast">
+    <a class="mark" href="#top" aria-label="Faux Contact, top of guide">
+      <svg viewBox="0 0 28 24" aria-hidden="true" shape-rendering="crispEdges"><path d="M0 4h13v4H4v3h7v4H4v6H0zM16 1h12v4h-9v12h9v4H15V5h1z"/></svg>
+      Faux Contact
+    </a>
+    <nav aria-label="Guide sections" class="fc-code"><a href="#foundations">Foundations</a><a href="#parts">Parts</a><a href="#use">CSS</a></nav>
+  </header>
+
+  <section class="plate" aria-label="Live display specimen">
+    <div class="hero fc-screen" id="display" data-wear="worn">
+      <div class="fc-field" aria-hidden="true"></div>
+      <div class="fc-dust" aria-hidden="true"></div>
+      <div class="plate-id">FC—01 / DISPLAY STUDY</div>
+      <div class="hero-copy">
+        <h1 class="fc-display"><span class="fc-rgb-title">Faux<i class="fc-tracking" aria-hidden="true" data-text="Faux"></i></span> <span class="fc-rgb-title">Contact<i class="fc-tracking" aria-hidden="true" data-text="Contact"></i></span></h1>
+        <p>A retrofuturistic CSS field guide to red phosphor, loose connections and low-resolution objects.</p>
+      </div>
+      <figure class="coupling" aria-label="Two tilted coupling rings rendered in seven dithered inks">
+        <i class="cross a" aria-hidden="true"></i>
+        <img src="assets/coupling.png" alt="" width="192" height="152">
+        <img src="assets/coupling-worn.png" alt="" width="192" height="152">
+        <i class="cross b" aria-hidden="true"></i>
+      </figure>
+      <div class="plate-foot">FIG. A / SPLIT COUPLING</div>
+    </div>
+    <div class="control-strip">
+      <span class="fc-code" id="condition-label">Display condition</span>
+      <fieldset class="fc-menu" aria-labelledby="condition-label" aria-controls="display">
+        <label><input type="radio" name="condition" value="clean"><span>Clean</span></label>
+        <label><input type="radio" name="condition" value="worn" checked><span>Worn</span></label>
+      </fieldset>
+      <a class="renderer-link" href="renderer/index.html">Open sprite lathe ↗</a>
+      <button class="fc-button motion" type="button" id="motion" aria-controls="display">Pause effects</button>
+    </div>
+  </section>
+
+  <section class="sheet" id="foundations" aria-labelledby="foundation-title">
+    <div class="sheet-head"><span class="index">01</span><h2 id="foundation-title">Foundations</h2></div>
+    <div class="mix">
+      <article><h3>The CRT raster</h3><p>A narrow band rolls down the tube. Within it, the grid bows sideways and the sprite bends by the same amount. The rows settle back into register as the band passes.</p></article>
+      <article><h3>The title cut</h3><p>Give each chapter one word, one type treatment and one field of colour. Hold it until the reader advances.</p></article>
+      <article><h3>The cartridge</h3><p>Choose a pixel budget before drawing. This coupling fits a 192 × 152 sprite in seven inks. Two shifted bands and an ordered dither give the rounded metal a chipped edge.</p></article>
+    </div>
+    <div class="swatches" aria-label="Core palette">
+      <div class="chip" style="--chip:#0b090a"><i></i><b>Carbon</b><code>#0B090A</code></div>
+      <div class="chip" style="--chip:#552521"><i></i><b>Grid oxide</b><code>#552521</code></div>
+      <div class="chip" style="--chip:#ff4939"><i></i><b>Signal red</b><code>#FF4939</code></div>
+      <div class="chip" style="--chip:#f3e8d5"><i></i><b>Manual stock</b><code>#F3E8D5</code></div>
+      <div class="chip" style="--chip:#b6a8a1"><i></i><b>Lead grey</b><code>#B6A8A1</code></div>
+      <div class="chip" style="--chip:#ff91b4"><i></i><b>Afterimage</b><code>#FF91B4</code></div>
+    </div>
+    <div class="type-row"><span class="fc-code">Display / 950</span><b class="type-big">CONTACT</b><p>Heavy grotesk, tight tracking, short lines. Concentrate the glow around short display words. Offset the cyan and magenta edges by a few pixels.</p></div>
+    <div class="type-row"><span class="fc-code">Body / 400</span><span class="type-prose">The contacts are worn.</span><p>Warm off-white on carbon. Use a steady baseline, 1.5 line height and a reading measure under 60 characters.</p></div>
+    <div class="type-row"><span class="fc-code">Data / 500</span><span class="type-index">CH.04 / 0128</span><p>Monospace with tabular numerals. Keep status values and control labels sharp at every display condition.</p></div>
+    <details><summary>Spacing and layout</summary><dl>
+      <dt>4 px unit</dt><dd>Use 8 px within controls, 16–24 px between related items and 48 px between groups.</dd>
+      <dt>48 px cell</dt><dd>Anchor large type to the field. A grid cell can shrink to 34 px on a narrow screen.</dd>
+      <dt>One focal pair</dt><dd>Let a single sprite balance a short title. On narrow screens the sprite moves below the title.</dd>
+    </dl></details>
+  </section>
+
+  <section class="sheet" id="parts" aria-labelledby="parts-title">
+    <div class="sheet-head"><span class="index">02</span><h2 id="parts-title">Parts &amp; behaviour</h2></div>
+    <div class="parts">
+      <article class="well">
+        <div class="well-content">
+          <div class="fc-code"><span>INPUT / 01</span><span>MONO</span></div>
+          <h3>Contact level</h3>
+          <div style="display:flex;gap:12px;align-items:center"><span class="fc-meter" id="meter" role="meter" aria-label="Contact level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"></span><output class="fc-code" id="level" aria-live="polite">60%</output></div>
+        </div>
+        <div class="well-actions"><span class="fc-code">10% steps</span><button class="fc-button motion" id="step" type="button">Raise level +</button></div>
+        <div class="well-foot"><h3>Segmented meter</h3><p>Fill ten cells left to right. Pair the bar with a value so it reads at a glance.</p></div>
+      </article>
+      <article class="well">
+        <div class="stage fc-film-stock" id="stage" data-card="4" aria-live="polite"><span class="card-word fc-film-title fc-rgb-title"><span id="card-text">Leader</span><i class="fc-tracking" aria-hidden="true" data-text="Leader"></i></span></div>
+        <div class="well-actions"><span class="fc-code" id="card-index">CARD 04 / 04</span><button class="fc-button motion" id="cut" type="button">Next title →</button></div>
+        <div class="well-foot"><h3>Chapter title</h3><p>On amber stock, cream lettering blooms into the brown edges of the frame. Step through three harder title cuts to compare.</p></div>
+      </article>
+    </div>
+    <details open><summary>Display conditions</summary><dl>
+      <dt>Clean</dt><dd>One 64 px tracking band travels from above the screen to below it every seven seconds. The picture shifts up to 8 px sideways inside the band.</dd>
+      <dt>Worn</dt><dd>Add fixed dust and offset two thin slices of the sprite by two or three source pixels. Give the dust the same position on every frame.</dd>
+    </dl></details>
+  </section>
+
+  <section class="sheet" id="use" aria-labelledby="use-title">
+    <div class="sheet-head"><span class="index">03</span><h2 id="use-title">Use the sheets</h2></div>
+    <div class="integration">
+      <div><p>Load <code>signal.css</code>, then <code>screen.css</code>. Add <code>fc</code> to a wrapper and put your content above the decorative layers. Add <code>type-fx.css</code> for an RGB-split display title and <code>film.css</code> for amber film stock. Load <code>js/crt.js</code> with <code>defer</code> to roll the entire picture. All assets work offline.</p>
+      <p>Set <code>data-wear</code> to <code>clean</code> or <code>worn</code>. The sprite slip comes from swapping the two supplied PNGs. Use the same technique with your own artwork.</p>
+      <p>Set <code>data-motion="paused"</code> on the screen to freeze the current frame. Reduced motion gives you a straight, steady raster.</p>
+      <div class="sheet-links"><a href="css/signal.css" download="signal.css">Download signal.css ↓</a><a href="css/screen.css" download="screen.css">Download screen.css ↓</a><a href="css/type-fx.css" download="type-fx.css">Download type-fx.css ↓</a><a href="css/film.css" download="film.css">Download film.css ↓</a><a href="js/crt.js" download="crt.js">Download crt.js ↓</a></div></div>
+      <pre class="snippet"><code>&lt;div class="fc"&gt;
+  &lt;section class="fc-screen" data-wear="worn"&gt;
+    &lt;div class="fc-field" aria-hidden="true"&gt;&lt;/div&gt;
+    &lt;div class="fc-dust" aria-hidden="true"&gt;&lt;/div&gt;
+    &lt;h2 class="fc-display"&gt;Phase 01&lt;/h2&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <details><summary>Grid controls</summary><dl>
+      <dt>--fc-grid</dt><dd>Ink for the horizontal and vertical traces.</dd>
+      <dt>--fc-cell</dt><dd>Grid cell width and height.</dd>
+      <dt>--fc-band</dt><dd>Band height in pixels. Start at 64 px.</dd>
+      <dt>--fc-shift</dt><dd>Peak horizontal deflection in pixels. Start at 8 px.</dd>
+      <dt>--fc-period</dt><dd>Time for one top-to-bottom pass. Start at 7 seconds.</dd>
+    </dl></details>
+  </section>
+  <footer class="footer fc-code"><span>Faux Contact / CSS field guide, ed. 01</span><a href="#top">Back to top ↑</a></footer>
+</main>
+<script>
+  const display = document.querySelector("#display");
+  document.querySelector(".fc-menu").addEventListener("change", (event) => {
+    display.dataset.wear = event.target.value;
+  });
+
+  const motion = document.querySelector("#motion");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let paused = false;
+  function syncMotion() {
+    display.dataset.motion = paused || reduced.matches ? "paused" : "running";
+    document.body.dataset.motion = display.dataset.motion;
+    motion.disabled = reduced.matches;
+    motion.textContent = reduced.matches ? "Still · reduced motion" : paused ? "Resume effects" : "Pause effects";
+  }
+  motion.addEventListener("click", () => { paused = !paused; syncMotion(); });
+  reduced.addEventListener("change", syncMotion);
+  syncMotion();
+
+  const cards = ["PHASE", "Slip", "RESET", "Leader"];
+  let card = 3;
+  document.querySelector("#cut").addEventListener("click", () => {
+    card = (card + 1) % cards.length;
+    const stage = document.querySelector("#stage");
+    stage.dataset.card = card + 1;
+    const film = card === 3;
+    stage.classList.toggle("fc-film-stock", film);
+    stage.firstElementChild.classList.toggle("fc-film-title", film);
+    stage.firstElementChild.classList.toggle("fc-rgb-title", film);
+    document.querySelector("#card-text").textContent = cards[card];
+    stage.querySelector(".fc-tracking").dataset.text = cards[card];
+    document.querySelector("#card-index").textContent = "CARD 0" + (card + 1) + " / 04";
+  });
+
+  const meter = document.querySelector("#meter");
+  const step = document.querySelector("#step");
+  step.addEventListener("click", () => {
+    const previous = Number(meter.getAttribute("aria-valuenow"));
+    const value = previous === 100 ? 0 : previous + 10;
+    meter.setAttribute("aria-valuenow", value);
+    meter.style.setProperty("--fc-level", value + "%");
+    document.querySelector("#level").textContent = value + "%";
+    step.textContent = value === 100 ? "Reset level" : "Raise level +";
+  });
+</script>
+</body>
+</html>
